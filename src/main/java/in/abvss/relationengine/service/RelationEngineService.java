@@ -13,6 +13,7 @@ import in.abvss.relationengine.ServiceProperties;
 import in.abvss.relationengine.finder.RelationFinder;
 import in.abvss.relationengine.finder.RelationFinderFactory;
 import in.abvss.relationengine.model.Member;
+import in.abvss.relationengine.model.Relation;
 import in.abvss.relationengine.model.RelationshipHolder;
 
 @SpringBootApplication
@@ -44,6 +45,27 @@ public class RelationEngineService {
         this.memberList = list;
     }
 
+    /**
+     * @return the memberList
+     */
+    public List<Member> getMemberList() {
+        return memberList;
+    }
+
+    /**
+     * @param memberList the memberList to set
+     */
+    public void setMemberList(List<Member> memberList) {
+        this.memberList = memberList;
+    }
+
+    /**
+     * @return the graph
+     */
+    public MutableDirectedGraph getGraph() {
+        return graph;
+    }
+
     public void createRelationshipGraph() {
         
         List<RelationFinder<Member>> finders = relationFinderFactory.getAllPrimaryRelationFinder();
@@ -52,8 +74,22 @@ public class RelationEngineService {
             
             for (RelationFinder<Member> relationFinder : finders) {
                 RelationshipHolder<Member> result =  relationFinder.find(member, memberList);
+                populateGraph(result);
             }
-            
         }
+    }
+
+    private void populateGraph(RelationshipHolder<Member> result) {
+        
+        Member member = result.getMember();
+        List<Member> list = result.getList();
+
+        graph.addVertex(member);
+        
+        for (Member member2 : list) {
+            graph.addVertex(member2);
+            graph.addEdge(result.getRelation(), member, member2);
+        }
+        
     }
 }

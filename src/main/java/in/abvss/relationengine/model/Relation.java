@@ -13,7 +13,33 @@ public class Relation implements WeightedEdge {
     private Relations relationName;
     
     private double weight;
+
+    /**
+     * 
+     */
+    public Relation() {
+        super();
+    }
     
+    /**
+     * @param relationName
+     */
+    public Relation(Relations relationName) {
+        super();
+        this.relationName = relationName;
+    }
+
+    
+    /**
+     * @param relationName
+     * @param weight
+     */
+    public Relation(Relations relationName, double weight) {
+        super();
+        this.relationName = relationName;
+        this.weight = weight;
+    }
+
     /**
      * @return the relationName
      */

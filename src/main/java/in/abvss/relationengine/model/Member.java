@@ -34,6 +34,50 @@ public class Member implements Vertex {
     
     
     /**
+     * 
+     */
+    public Member() {
+        super();
+    }
+    /**
+     * @param id
+     * @param firstName
+     * @param middleName
+     * @param lastName
+     * @param fatherFirstName
+     * @param fatherMiddleName
+     * @param fatherLastName
+     * @param motherFirstName
+     * @param motherMiddleName
+     * @param motherLastName
+     * @param spouseFirstName
+     * @param spouseMiddleName
+     * @param spouseLastName
+     * @param gender
+     * @param dateOfBirth
+     */
+    public Member(Long id, String firstName, String middleName, String lastName, String fatherFirstName,
+            String fatherMiddleName, String fatherLastName, String motherFirstName, String motherMiddleName,
+            String motherLastName, String spouseFirstName, String spouseMiddleName, String spouseLastName,
+            String gender, Date dateOfBirth) {
+        super();
+        this.id = id;
+        this.firstName = firstName;
+        this.middleName = middleName;
+        this.lastName = lastName;
+        this.fatherFirstName = fatherFirstName;
+        this.fatherMiddleName = fatherMiddleName;
+        this.fatherLastName = fatherLastName;
+        this.motherFirstName = motherFirstName;
+        this.motherMiddleName = motherMiddleName;
+        this.motherLastName = motherLastName;
+        this.spouseFirstName = spouseFirstName;
+        this.spouseMiddleName = spouseMiddleName;
+        this.spouseLastName = spouseLastName;
+        this.gender = gender;
+        this.dateOfBirth = dateOfBirth;
+    }
+    /**
      * @return the id
      */
     public Long getId() {
