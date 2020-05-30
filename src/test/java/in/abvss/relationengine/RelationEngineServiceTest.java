@@ -11,12 +11,14 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import in.abvss.relationengine.model.Member;
 import in.abvss.relationengine.service.RelationEngineService;
 
-@SpringBootTest("service.message=Hello")
+@SpringBootApplication
+@SpringBootTest("service.message=ABVSS")
 public class RelationEngineServiceTest {
 
   @Autowired

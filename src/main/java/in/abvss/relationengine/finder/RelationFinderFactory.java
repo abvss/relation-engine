@@ -40,12 +40,13 @@ public class RelationFinderFactory {
     @Autowired
     private DaughterRelationFinder<Member> daughterRelationFinder;
 
-    List<RelationFinder<Member>> primaryRelations = Stream.of(fatherRelationFinder, motherRelationFinder, brotherRelationFinder,
-            sisterRelationFinder, spouseRelationFinder, sonRelationFinder, daughterRelationFinder)
-            .collect(Collectors.toList());
-
     public List<RelationFinder<Member>> getAllPrimaryRelationFinder() {
 
+        List<RelationFinder<Member>> primaryRelations = Stream.of(fatherRelationFinder, motherRelationFinder, brotherRelationFinder,
+                sisterRelationFinder, spouseRelationFinder, sonRelationFinder, daughterRelationFinder)
+                .collect(Collectors.toList());
+
+        
         return primaryRelations;
     }
 }

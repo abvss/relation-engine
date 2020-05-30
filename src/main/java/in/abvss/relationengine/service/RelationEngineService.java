@@ -1,9 +1,14 @@
 package in.abvss.relationengine.service;
 
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.List;
 
 import org.apache.commons.graph.MutableDirectedGraph;
 import org.apache.commons.graph.domain.basic.DirectedGraphImpl;
+import org.apache.commons.graph.visualize.TouchGraph;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -13,10 +18,8 @@ import in.abvss.relationengine.ServiceProperties;
 import in.abvss.relationengine.finder.RelationFinder;
 import in.abvss.relationengine.finder.RelationFinderFactory;
 import in.abvss.relationengine.model.Member;
-import in.abvss.relationengine.model.Relation;
 import in.abvss.relationengine.model.RelationshipHolder;
 
-@SpringBootApplication
 @Service
 @EnableConfigurationProperties(ServiceProperties.class)
 public class RelationEngineService {
@@ -74,9 +77,12 @@ public class RelationEngineService {
             
             for (RelationFinder<Member> relationFinder : finders) {
                 RelationshipHolder<Member> result =  relationFinder.find(member, memberList);
-                populateGraph(result);
+                if (result != null) {
+                    populateGraph(result);
+                }
             }
         }
+        
     }
 
     private void populateGraph(RelationshipHolder<Member> result) {

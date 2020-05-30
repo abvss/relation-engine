@@ -16,7 +16,7 @@ import in.abvss.relationengine.model.RelationshipHolder;
  */
 
 @Service
-public class SonRelationFinder<Member> extends RelationFinder<Member> {
+public class SonRelationFinder<T> extends RelationFinder<Member> {
 
     /**
      * 
