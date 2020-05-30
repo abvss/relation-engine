@@ -2,7 +2,7 @@ package in.abvss.relationengine;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties("service")
+@ConfigurationProperties("relation.service")
 public class ServiceProperties {
 
   /**
