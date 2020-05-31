@@ -9,6 +9,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 
+import org.apache.commons.graph.MutableDirectedGraph;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -48,6 +49,12 @@ public class RelationEngineServiceTest {
       
       service.setMemberList(memberList);
       service.createRelationshipGraph();
+      
+      MutableDirectedGraph g = service.getGraph();
+      
+      
+      assertThat(g.getEdges().size()).isEqualTo(8);
+      assertThat(g.getVertices().size()).isEqualTo(4);
       
   }
 

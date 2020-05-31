@@ -1,16 +1,10 @@
 package in.abvss.relationengine.service;
 
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
 import java.util.List;
 
 import org.apache.commons.graph.MutableDirectedGraph;
 import org.apache.commons.graph.domain.basic.DirectedGraphImpl;
-import org.apache.commons.graph.visualize.TouchGraph;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Service;
 
