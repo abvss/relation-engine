@@ -4,6 +4,9 @@ import java.util.List;
 
 import org.apache.commons.graph.MutableDirectedGraph;
 import org.apache.commons.graph.domain.basic.DirectedGraphImpl;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Service;
@@ -21,6 +24,8 @@ public class RelationEngineService {
     private ServiceProperties serviceProperties;
     private List<Member> memberList;
 
+    private Logger logger = LoggerFactory.getLogger(RelationEngineService.class);
+    
     @Autowired
     RelationFinderFactory relationFinderFactory;
     
@@ -89,6 +94,7 @@ public class RelationEngineService {
         for (Member member2 : list) {
             graph.addVertex(member2);
             graph.addEdge(result.getRelation(), member, member2);
+            logger.info(member2.getFirstName() +" is a "+ result.getRelation().getRelationName() + " of " + member.getFirstName());
         }
         
     }
