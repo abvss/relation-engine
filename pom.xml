@@ -78,4 +78,9 @@
 			</exclusions>
 		</dependency>
 	</dependencies>
+
+	<build>
+		<defaultGoal>clean verify</defaultGoal>
+	</build>
+
 </project>
