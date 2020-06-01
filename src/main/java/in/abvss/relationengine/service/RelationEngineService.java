@@ -68,7 +68,7 @@ public class RelationEngineService {
         return graph;
     }
 
-    public void createRelationshipGraph() {
+    public MutableDirectedGraph createRelationshipGraph() {
         
         List<RelationFinder<Member>> finders = relationFinderFactory.getAllPrimaryRelationFinder();
         
@@ -81,7 +81,7 @@ public class RelationEngineService {
                 }
             }
         }
-        
+        return graph;
     }
 
     private void populateGraph(RelationshipHolder<Member> result) {
@@ -93,8 +93,11 @@ public class RelationEngineService {
         
         for (Member member2 : list) {
             graph.addVertex(member2);
+            
+            result.getRelation().setMember1(member);
+            result.getRelation().setMember2(member2);
+            
             graph.addEdge(result.getRelation(), member, member2);
-            logger.info(member2.getFirstName() +" is a "+ result.getRelation().getRelationName() + " of " + member.getFirstName());
         }
         
     }

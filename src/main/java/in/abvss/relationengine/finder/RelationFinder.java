@@ -12,7 +12,7 @@ import in.abvss.relationengine.model.Member;
  *
  */
 @Service
-public abstract class RelationFinder<T> implements Findable<Member>{
+public abstract class RelationFinder<T> implements Findable<T>{
 
     public RelationFinder() {
     }

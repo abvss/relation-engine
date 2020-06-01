@@ -33,8 +33,7 @@ public class FatherRelationFinder<T> extends RelationFinder<Member> {
         RelationshipHolder<Member> holder = new RelationshipHolder<Member>();
         holder.setMember(member);
         
-        
-        holder.setRelation(new Relation(Relations.FATHER));
+        holder.setRelation(new Relation<Member>(Relations.FATHER));
         List<Member> foundList = new ArrayList<Member>();
         
         for (Member member2 : list) {

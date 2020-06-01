@@ -11,7 +11,11 @@ import lombok.ToString;
 @ToString
 @Getter
 @Setter
-public class Relation implements WeightedEdge {
+public class Relation<T> implements WeightedEdge {
+    
+    private T member1;
+    
+    private T member2;
     
     private Relations relationName;
     

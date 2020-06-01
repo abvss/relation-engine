@@ -9,9 +9,10 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-import org.apache.commons.graph.Edge;
 import org.apache.commons.graph.MutableDirectedGraph;
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -28,6 +29,9 @@ public class RelationEngineServiceTest {
   private RelationEngineService service;
   
   DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+  
+  private Logger logger = LoggerFactory.getLogger(RelationEngineService.class);
+
 
   @Test
   public void contextLoads() {
@@ -55,9 +59,19 @@ public class RelationEngineServiceTest {
       
       
       service.setMemberList(memberList);
-      service.createRelationshipGraph();
       
-      MutableDirectedGraph g = service.getGraph();
+      
+      MutableDirectedGraph g = service.createRelationshipGraph();
+      
+       for (Object rel : g.getEdges()) {
+           Relation<Member> relation = (Relation<Member>)rel;
+        
+        logger.info(relation.getMember2().getFirstName() +" is a "+ relation.getRelationName() + " of " + relation.getMember1().getFirstName());
+
+       } 
+          
+      
+      
       
       assertThat(g.getVertices().size()).isEqualTo(6);
       assertThat(g.getEdges().size()).isEqualTo(16);
