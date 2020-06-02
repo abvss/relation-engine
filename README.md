@@ -4,7 +4,9 @@
 
 Relation Engine is the relation graph creator library/service you can use with your spring applications, this service is based on first, middle, last names of the individuals and find out the basic relations like father, mother, son, daughter, brother, sister, spouse. With curated information library creates the Graph data structure which you can use freely for many diffrant cool things :-)
 
-![relation-graph](/src/test/resources/generated-graph/graph.png)
+<p align="center">
+  <img src="/src/test/resources/generated-graph/graph.png" />
+</p>
 
 ## Getting Started
 
