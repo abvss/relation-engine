@@ -41,7 +41,7 @@ RelationEngineService relationEngineService;
 List<Member> memberList = new ArrayList<Member>();
 ...
 relationEngineService.setMemberList(memberList);      
-MutableDirectedGraph g = service.createRelationshipGraph();   
+MutableDirectedGraph g = relationEngineService.createRelationshipGraph();   
 
 ```
 
