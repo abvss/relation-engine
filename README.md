@@ -25,7 +25,7 @@ These instructions will get you a copy of the project up and running on your loc
 Import the dependancy
 ```
 <dependency>
-    <groupId>in.abvss</groupId>
+        <groupId>in.abvss</groupId>
 	<artifactId>relation-engine</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 </dependency>
@@ -46,7 +46,7 @@ MutableDirectedGraph g = service.createRelationshipGraph();
 ```
 
 
-## Running the tests
+### Running the tests
 For shooting everything once. :)
 
 ```
@@ -82,7 +82,7 @@ mvn site:run
 ```
 and point your browser to http://0.0.0.0:8080/, All info, javadoc, Reports at one place :)
 
-## Deployment
+### Deployment
 
 Just do ```mvn clean verify package``` in source directory and use the .jar file generated.
 
