@@ -1,6 +1,6 @@
 # Relation Engine
 
-[![Build Status](https://travis-ci.com/abvss/relation-engine.svg?branch=master)](https://travis-ci.com/abvss/relation-engine) [![Coverage Status](https://coveralls.io/repos/github/abvss/relation-engine/badge.svg?branch=master)](https://coveralls.io/github/abvss/relation-engine?branch=master)
+[![Build Status](https://travis-ci.com/abvss/relation-engine.svg?branch=master)](https://travis-ci.com/abvss/relation-engine) [![Coverage Status](https://coveralls.io/repos/github/abvss/relation-engine/badge.svg?branch=master)](https://coveralls.io/github/abvss/relation-engine?branch=master) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=abvss_relation-engine&metric=alert_status)](https://sonarcloud.io/dashboard?id=abvss_relation-engine)
 
 Relation Engine is the relation graph creator library/service you can use with your spring applications, this service is based on first, middle, last names of the individuals and find out the basic relations like father, mother, son, daughter, brother, sister, spouse. With curated information library creates the Graph data structure which you can use freely for many diffrant cool things :-)
 
