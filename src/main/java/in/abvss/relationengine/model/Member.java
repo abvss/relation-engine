@@ -2,8 +2,6 @@ package in.abvss.relationengine.model;
 
 import java.util.Date;
 
-import org.apache.commons.graph.Vertex;
-
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,7 +11,7 @@ import lombok.ToString;
 @ToString
 @Getter
 @Setter
-public class Member implements Vertex {
+public class Member {
 
     private Long id;
     

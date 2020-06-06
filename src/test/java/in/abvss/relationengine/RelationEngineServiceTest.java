@@ -9,7 +9,8 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-import org.apache.commons.graph.MutableDirectedGraph;
+import org.apache.commons.graph.model.DirectedMutableGraph;
+import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -61,20 +62,17 @@ public class RelationEngineServiceTest {
       service.setMemberList(memberList);
       
       
-      MutableDirectedGraph g = service.createRelationshipGraph();
+      DirectedMutableGraph g = service.createRelationshipGraph();
       
        for (Object rel : g.getEdges()) {
-           Relation<Member> relation = (Relation<Member>)rel;
+        Relation<Member> relation = (Relation<Member>)rel;
         
         logger.info(relation.getMember2().getFirstName() +" is a "+ relation.getRelationName() + " of " + relation.getMember1().getFirstName());
 
        } 
-          
       
-      
-      
-      assertThat(g.getVertices().size()).isEqualTo(6);
-      assertThat(g.getEdges().size()).isEqualTo(16);
+      assertThat(Lists.newArrayList(g.getVertices()).size()).isEqualTo(6);
+      assertThat(Lists.newArrayList(g.getEdges()).size()).isEqualTo(16);
       
   }
   

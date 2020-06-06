@@ -2,9 +2,7 @@ package in.abvss.relationengine.service;
 
 import java.util.List;
 
-import org.apache.commons.graph.MutableDirectedGraph;
-import org.apache.commons.graph.domain.basic.DirectedGraphImpl;
-
+import org.apache.commons.graph.model.DirectedMutableGraph;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +13,7 @@ import in.abvss.relationengine.ServiceProperties;
 import in.abvss.relationengine.finder.RelationFinder;
 import in.abvss.relationengine.finder.RelationFinderFactory;
 import in.abvss.relationengine.model.Member;
+import in.abvss.relationengine.model.Relation;
 import in.abvss.relationengine.model.RelationshipHolder;
 
 @Service
@@ -29,7 +28,7 @@ public class RelationEngineService {
     @Autowired
     RelationFinderFactory relationFinderFactory;
     
-    MutableDirectedGraph graph = new DirectedGraphImpl();
+    DirectedMutableGraph<Member, Relation<Member>> graph = new DirectedMutableGraph();
 
     public RelationEngineService() {
     }
@@ -64,11 +63,11 @@ public class RelationEngineService {
     /**
      * @return the graph
      */
-    public MutableDirectedGraph getGraph() {
+    public DirectedMutableGraph getGraph() {
         return graph;
     }
 
-    public MutableDirectedGraph createRelationshipGraph() {
+    public DirectedMutableGraph createRelationshipGraph() {
         
         List<RelationFinder<Member>> finders = relationFinderFactory.getAllPrimaryRelationFinder();
         
@@ -89,15 +88,19 @@ public class RelationEngineService {
         Member member = result.getMember();
         List<Member> list = result.getList();
 
-        graph.addVertex(member);
+        if (!graph.containsVertex(member)) {
+            graph.addVertex(member);
+        }
         
         for (Member member2 : list) {
-            graph.addVertex(member2);
+            if (!graph.containsVertex(member2)) {
+                graph.addVertex(member2);
+            }
             
             result.getRelation().setMember1(member);
             result.getRelation().setMember2(member2);
             
-            graph.addEdge(result.getRelation(), member, member2);
+            graph.addEdge(member,result.getRelation(), member2);
         }
         
     }

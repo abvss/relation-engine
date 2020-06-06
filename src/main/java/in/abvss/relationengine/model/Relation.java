@@ -1,7 +1,5 @@
 package in.abvss.relationengine.model;
 
-import org.apache.commons.graph.WeightedEdge;
-
 import in.abvss.relationengine.Relations;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -11,7 +9,7 @@ import lombok.ToString;
 @ToString
 @Getter
 @Setter
-public class Relation<T> implements WeightedEdge {
+public class Relation<T> {
     
     private T member1;
     
@@ -47,7 +45,6 @@ public class Relation<T> implements WeightedEdge {
         this.weight = weight;
     }
 
-    @Override
     public double getWeight() {
         // TODO Auto-generated method stub
         return 0;

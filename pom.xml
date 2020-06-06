@@ -26,9 +26,11 @@
 		</dependency>
 
 		<dependency>
-			<groupId>commons-graph</groupId>
+			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-graph</artifactId>
-			<version>0.8.1</version>
+			<version>0.1-SNAPSHOT</version>
+			<scope>system</scope>
+            <systemPath>${project.basedir}/lib/commons-graph-0.1-SNAPSHOT.jar</systemPath>
 		</dependency>
 
 		<dependency>
